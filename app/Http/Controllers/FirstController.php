@@ -7,15 +7,16 @@ use Illuminate\Http\Request;
 class FirstController extends Controller
 {
     public function index() {
-        return "<h1>La page d'accueil de mon application</h1>";
+        $articles = ["1" => "Article 1", 2 => "Le numéro 2", 3 => "Le trois"];
+        return view("firstcontroller.index", ["articles" => $articles]);
     }
 
 
     public function about() {
-        return "<h2>La page about de mon super site</h2>";
+        return view("firstcontroller.about");
     }
 
     public function article($id) {
-        return "<h3>L'article avec l'id = $id";
+        return view("firstcontroller.article", ["id" => $id]);
     }
 }
