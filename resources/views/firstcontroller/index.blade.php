@@ -1,16 +1,34 @@
 @extends('layouts.template')
 
 @section('content')
-    <h1>La page d'accueil de mon application</h1>
+
+    <div class="container-fluid p-0">
+        <div class="row portfolios-area">
+            <div class="col-lg-12">
+                <div class="portfolio-intro">
+                    <h2 class="section-title mb-5">A <span>wonderful trip</span> between pictures and PHP</h2>
+                </div>
+            </div>
+
+            @foreach($photos as $p)
+                <div class="mix col-md-6 col-lg-3 rened">
+                    <a href="{{ $p }}" class="portfolio-item pi-style2 set-bg"
+                       data-setbg="{{ $p }}">
+                        <div class="pi-inner">
+                            <h2>+ See Project</h2>
+                        </div>
+                    </a>
+                    <div class="portfolio-meta">
+                        <h2>Brand Campaign</h2>
+                        <p>Graphic design</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 
 
-    <div>Venez tester !!!</div>
 
 
-    <ul>
-        @foreach($articles as $id => $nom)
-            <li><a href="/article/{{ $id }}">{{ $nom }}</a></li>
-        @endforeach
-    </ul>
 
 @endsection

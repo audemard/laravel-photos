@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 class FirstController extends Controller
 {
     public function index() {
-        $articles = ["1" => "Article 1", 2 => "Le numéro 2", 3 => "Le trois"];
-        return view("firstcontroller.index", ["articles" => $articles]);
+        $photos = ["/images/portfolio/1.jpg", "/images/portfolio/2.jpg", "/images/portfolio/3.jpg", "/images/portfolio/4.jpg",
+        "/images/portfolio/5.jpg", "/images/portfolio/6.jpg"];
+        return view("firstcontroller.index", ["photos" => $photos]);
     }
 
 
