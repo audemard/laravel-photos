@@ -20,4 +20,18 @@ class FirstController extends Controller
     public function article($id) {
         return view("firstcontroller.article", ["id" => $id]);
     }
+
+    public function create() {
+        return view("firstcontroller.create");
+    }
+
+    public function store(Request $request) {
+        $photo = new Photo();
+        $photo->title = $request->input('title');
+        $photo->url = $request->input('url');
+        $photo->votes = 0;
+        $photo->save(); // INSERT INTO photos....
+        return redirect("/");
+    }
+
 }

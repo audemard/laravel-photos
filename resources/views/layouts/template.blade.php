@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="pictures, laravel">
     <meta name="keywords" content="pictures, laravel">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
     <link href="/img/favicon.ico" rel="shortcut icon"/>
@@ -47,7 +48,8 @@
                 <a href="" class="site-btn header-btn">Get in touch</a>
                 <nav class="main-menu">
                     <ul>
-                        <li><a href="/home">Home</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/photos/create">New</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/article/1">Work</a></li>
                     </ul>
