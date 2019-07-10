@@ -38,6 +38,20 @@ class User extends Authenticatable
     ];
 
 
+    public function ILikeThem() {
+        return $this->belongsToMany('App\User', 'connection', 'from_id', 'to_id');
+        // SELECT * FROM users JOIN connection on to_id=users.id WHERE from_id=$this->id
+    }
+
+    public function theyLikeMe() {
+        return $this->belongsToMany('App\User', 'connection', 'to_id', 'from_id');
+        // SELECT * FROM users JOIN connection on from_id=users.id WHERE to_id=$this->id
+    }
+
+
+
+
+
 
     public function photos() {
         return $this->hasMany('App\Photo', 'user_id');

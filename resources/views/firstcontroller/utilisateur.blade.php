@@ -24,12 +24,12 @@
                     <div class="row mt-5">
                         <div class="col-md-4">
                             <div class="milestone">
-                                <h2>56<span>Abonnements</span></h2>
+                                <h2>{{$user->theyLikeMe()->count()}}<span>Abonnements</span></h2>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="milestone">
-                                <h2>112<span>Abonnés</span></h2>
+                                <h2>{{$user->ILikeThem()->count()}}<span>Abonnés</span></h2>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -38,6 +38,17 @@
                             </div>
                         </div>
                     </div>
+                    @auth
+                        @if(Auth::id() !=$user->id)
+                            @if(Auth::user()->ILikeThem->contains($user->id))
+                                <a href="/suivre/{{$user->id}}" class="site-btn btn-line">Suivi</a>
+                            @else
+                                <a href="/suivre/{{$user->id}}" class="site-btn btn-fade">Suivre</a>
+                            @endif
+
+                        @endif
+
+                    @endauth
 
                 </div>
                 <div class="col-lg-5 offset-lg-1">
@@ -54,7 +65,7 @@
         <div class="row portfolios-area">
 
 
-        @include('_photos', ["photos" => $user->photos])
+            @include('_photos', ["photos" => $user->photos])
         </div>
     </div>
 

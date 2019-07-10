@@ -36,6 +36,15 @@ class FirstController extends Controller
 
     }
 
+
+    public function suivre($id) {
+        $user = User::find($id);
+        if($user == false)
+            abort(404);
+        Auth::user()->ILikeThem()->toggle($id);
+        return back();
+    }
+
     public function store(Request $request) {
         $photo = new Photo();
         $photo->title = $request->input('title');
