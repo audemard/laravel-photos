@@ -45,13 +45,37 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-9">
-                <a href="" class="site-btn header-btn">Get in touch</a>
                 <nav class="main-menu">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/photos/create">New</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/article/1">Work</a></li>
+
+                        @guest
+                            <li class="right">
+                                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="right">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="right">
+                                    {{ Auth::user()->name }}
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-power-off"></i>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                     </ul>
                 </nav>
             </div>
