@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FirstController extends Controller
 {
@@ -30,6 +31,7 @@ class FirstController extends Controller
         $photo->title = $request->input('title');
         $photo->url = $request->input('url');
         $photo->votes = 0;
+        $photo->user_id = Auth::id();
         $photo->save(); // INSERT INTO photos....
         return redirect("/");
     }
