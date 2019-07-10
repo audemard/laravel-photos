@@ -14,3 +14,5 @@ Route::post('/photos', 'FirstController@store')->middleware('auth');;
 Auth::routes();
 
 Route::get('/utilisateur/{id}', 'FirstController@utilisateur')->where('id', '[0-9]+');
+
+Route::get('/suivre/{id}','FirstController@suivre')->middleware('auth')->where('id', '[0-9]+');
