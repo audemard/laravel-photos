@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Photo;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +25,15 @@ class FirstController extends Controller
 
     public function create() {
         return view("firstcontroller.create");
+    }
+
+
+    public function utilisateur($id) {
+        $user = User::find($id);
+        if($user == false)
+            abort(404);
+        return view("firstcontroller.utilisateur", ["user" => $user]);
+
     }
 
     public function store(Request $request) {
