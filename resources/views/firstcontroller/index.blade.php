@@ -20,7 +20,7 @@
                     </a>
                     <div class="portfolio-meta">
                         <h2>{{ $p->title }}</h2>
-                        <p>Graphic design</p>
+                        <p>{{ $p->user->name }}</p>
                     </div>
                 </div>
             @endforeach

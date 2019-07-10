@@ -18,6 +18,7 @@ class CreatePhotosTable extends Migration
             $table->string('title', 255);
             $table->string('url', 255);
             $table->integer('votes');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

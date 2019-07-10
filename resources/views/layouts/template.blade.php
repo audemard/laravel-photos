@@ -48,7 +48,9 @@
                 <nav class="main-menu">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/photos/create">New</a></li>
+                        @auth
+                            <li><a href="/photos/create">New</a></li>
+                        @endauth
                         <li><a href="/about">About</a></li>
                         <li><a href="/article/1">Work</a></li>
 
