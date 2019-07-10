@@ -17,14 +17,18 @@ class DatabaseSeeder extends Seeder
             'id'=> 1,
             'name' => "utilisateur 1",
             'email' => "utilisateur1@gmail.com",
-            'password' => bcrypt('azerty')
+            'password' => bcrypt('azerty'),
+            'overview' => "Je suis fan de photo !!",
+            'avatar' => "/images/about.jpg"
         ]);
 
         DB::table('users')->insert([
             'id'=> 2,
             'name' => "utilisateur 2",
             'email' => "utilisateur2@gmail.com",
-            'password' => bcrypt('azerty')
+            'password' => bcrypt('azerty'),
+            'overview' => "Moi aussi, je suis fan de photo !!",
+            'avatar' => "/images/about.jpg"
         ]);
 
 

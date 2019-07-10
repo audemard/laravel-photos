@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+    public function photos() {
+        return $this->hasMany('App\Photo', 'user_id');
+        // SELECT * FROM photos WHERE user_id = $this->id
+    }
 }
