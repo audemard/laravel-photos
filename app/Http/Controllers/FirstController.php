@@ -47,6 +47,12 @@ class FirstController extends Controller
 
     public function store(Request $request) {
 
+        $validatedData = $request->validate([
+            'title' => 'required|max:255|min:4',
+            'image' => 'required|file|mimes:jpeg,bmp,png'
+            ]);
+
+        // Je ne viens ici que si le formaulaire est valide par rapport aux règles définies ci dessus
        // dd($_FILES, $request->file('image'));
         $name = $request->file('image')->hashName();
         $request->file('image')->move("uploads/".Auth::id(), $name);
