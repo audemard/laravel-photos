@@ -46,13 +46,41 @@ class FirstController extends Controller
     }
 
     public function store(Request $request) {
+
+       // dd($_FILES, $request->file('image'));
+        $name = $request->file('image')->hashName();
+        $request->file('image')->move("uploads/".Auth::id(), $name);
         $photo = new Photo();
         $photo->title = $request->input('title');
-        $photo->url = $request->input('url');
+        $photo->url = "/uploads/".Auth::id()."/".$name;
         $photo->votes = 0;
         $photo->user_id = Auth::id();
         $photo->save(); // INSERT INTO photos....
         return redirect("/");
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
