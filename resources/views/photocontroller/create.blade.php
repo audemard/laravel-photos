@@ -5,10 +5,6 @@
 
     <h1>Une nouvelle photo</h1>
 
-    <pre>
-        {{ print_r(Session::all()) }}
-    </pre>
-
 
 
     <section class="page-section">
