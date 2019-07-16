@@ -21,4 +21,4 @@ Route::resource('users', 'UserController')->only([
    'show'
 ]);
 
-
+Route::get('/search/{s}', 'FirstController@search');

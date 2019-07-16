@@ -25,7 +25,13 @@ class FirstController extends Controller
     }
 
 
+    public function search($s) {
+        $photos = Photo::whereRaw("title like concat('%',?,'%')", [$s])->orderBy('votes', 'desc')->get();
+        $users = User::whereRaw("name like concat(?,'%')", [$s])->orderBy('created_at', 'desc')->get();
 
+        return view("firstcontroller.search", ["photos" => $photos, "users"=>$users]);
+
+    }
 
 
 
