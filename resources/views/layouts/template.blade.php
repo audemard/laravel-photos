@@ -54,6 +54,15 @@
                         <li><a href="/about">About</a></li>
                         <li><a href="/article/1">Work</a></li>
 
+
+                        <li>
+                            <i id="search" class="fa fa-search"></i>
+                        </li>
+                        <div id="searchdiv" style="position:absolute;">
+                            <form id="searchform">
+                                <input type="search" placeholder="Recherche" />
+                            </form>
+                        </div>
                         @guest
                             <li class="right">
                                 <a href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -121,5 +130,7 @@
 <script src="/js/mixitup.min.js"></script>
 <script src="/js/magnific-popup.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/divers.js"></script>
+
 </body>
 </html>
