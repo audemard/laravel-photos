@@ -22,3 +22,9 @@ Route::resource('users', 'UserController')->only([
 ]);
 
 Route::get('/search/{s}', 'FirstController@search');
+
+Route::post('/users/updateoverview', 'UserController@updateoverview')->middleware('auth');
+
+Route::get('/newuser', function() {
+    return redirect("/users/".Auth::id());
+});

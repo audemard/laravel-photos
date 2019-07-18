@@ -20,7 +20,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <p> {{ $user->overview }}</p>
+
+                    <p id="overview" {{Auth::check() && Auth::id() == $user->id ? "contenteditable" : ""}}>
+                    {!!  $user->overview== null ? "Veuillez rentrer une description de vous" : $user->overview  !!}
+                    </p>
+
+                    @if(Auth::check() && Auth::id() == $user->id)
+                        <form id="overviewform" method="post" action="/users/updateoverview">
+                            @csrf
+                            <input type="hidden" name="overview" />
+                            <button type="submit" class="site-btn btn-fade">Valider</button>
+                        </form>
+                    @endif
+
+
                     <div class="row mt-5">
                         <div class="col-md-4">
                             <div class="milestone">

@@ -29,4 +29,12 @@ class UserController extends Controller
         Auth::user()->ILikeThem()->toggle($id);
         return back();
     }
+
+    public function updateoverview(Request $request) {
+        $overview = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $request->input('overview'));
+        Auth::user()->overview = $overview;
+        Auth::user()->save();
+        return back();
+
+    }
 }
